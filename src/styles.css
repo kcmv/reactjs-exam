@@ -1,0 +1,23 @@
+#app {
+  margin: 2em;
+}
+
+.assembly-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error {
+  color: red;
+}
+
+.assembly-item:hover {
+  background-color: yellow;
+}
