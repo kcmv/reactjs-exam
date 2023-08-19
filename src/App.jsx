@@ -9,7 +9,7 @@ const App = props => (
   <div id="app">
     <AssemblyLine 
       stages={[
-        "Brainstorming", 
+        "Idea", 
         "Development", 
         "Testing", 
         "Deployment"

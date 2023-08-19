@@ -9,11 +9,6 @@
   border-radius: 4px;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-}
-
 .error {
   color: red;
 }
@@ -21,3 +16,44 @@
 .assembly-item:hover {
   background-color: yellow;
 }
+
+.flex-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.assembly-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.stages-container {
+  display: flex;
+}
+
+.assembly-stage {
+  margin-right: 100px; 
+}
+
+.item-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+font-family: 'Alex Brush', cursive;
+font-family: 'Black Ops One', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Raleway', sans-serif;
+font-family: 'REM', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Roboto Slab', serif;
+font-family: 'Source Code Pro', monospace;
+}
+
