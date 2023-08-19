@@ -10,7 +10,6 @@ const App = (props) => (
     <AssemblyLine
       stages={["Brainstorming", "Development", "Testing", "Deployment"]}
     />
-    <div>Hello world</div>
   </div>
 );
 
