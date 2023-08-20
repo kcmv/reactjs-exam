@@ -15,7 +15,9 @@ const AssemblyItem = ({
       setAssemblyItems(filter);
       return;
     }
+
     removedItem["stage_index"]++;
+
     assemblyItemsCopy.splice(0, 0, removedItem);
     setAssemblyItems(assemblyItemsCopy);
   };
@@ -30,6 +32,7 @@ const AssemblyItem = ({
     }
 
     removedItem["stage_index"]--;
+
     assemblyItemsCopy.splice(assemblyItemsCopy.length, 0, removedItem);
     setAssemblyItems(assemblyItemsCopy);
   };
@@ -42,9 +45,9 @@ const AssemblyItem = ({
       const [removedItem] = assemblyItemsCopy.splice(item_id, 1);
 
       if (e.button === 0) {
-        appendItem(removedItem, assemblyItemsCopy);
-      } else if (e.button === 2) {
         prependItem(removedItem, assemblyItemsCopy);
+      } else if (e.button === 2) {
+        appendItem(removedItem, assemblyItemsCopy);
       }
     }
   };

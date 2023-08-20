@@ -1,5 +1,6 @@
 #app {
   margin: 2em;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .assembly-item {
@@ -10,6 +11,7 @@
 }
 
 .container {
+  margin-top: 1.4rem;
   display: flex;
   justify-content: space-between;
 }
@@ -20,4 +22,33 @@
 
 .assembly-item:hover {
   background-color: yellow;
+}
+
+header {
+  border-bottom: 3px solid rgb(202, 196, 196);
+  padding-bottom: 2rem;
+}
+
+.add-item-label {
+  padding-right: 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.assembly-add-item {
+  width: 50%;
+  padding: 0.5rem;
+}
+
+.stage-type {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.stage-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 0.5rem;
 }
