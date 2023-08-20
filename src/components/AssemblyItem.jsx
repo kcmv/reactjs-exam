@@ -3,12 +3,12 @@ import React from "react";
 const AssemblyItem = ({
   data,
   item_id,
+  stages,
   assemblyItems,
   setAssemblyItems,
-  stages,
 }) => {
-  const prependItem = (removedItem, assemblyItemsCopy) => {
-    if (removedItem["stage_index"] === stages.length - 1) {
+  const prependItem = (displacedItem, assemblyItemsCopy) => {
+    if (displacedItem["stage_index"] === stages.length - 1) {
       const filter = assemblyItemsCopy.filter(
         (item) => item["stage_index"] <= 3
       );
@@ -16,14 +16,14 @@ const AssemblyItem = ({
       return;
     }
 
-    removedItem["stage_index"]++;
+    displacedItem["stage_index"]++;
 
-    assemblyItemsCopy.splice(0, 0, removedItem);
+    assemblyItemsCopy.splice(0, 0, displacedItem);
     setAssemblyItems(assemblyItemsCopy);
   };
 
-  const appendItem = (removedItem, assemblyItemsCopy) => {
-    if (removedItem["stage_index"] === 0) {
+  const appendItem = (displacedItem, assemblyItemsCopy) => {
+    if (displacedItem["stage_index"] === 0) {
       const filter = assemblyItemsCopy.filter(
         (item) => item["stage_index"] >= 0
       );
@@ -31,9 +31,9 @@ const AssemblyItem = ({
       return;
     }
 
-    removedItem["stage_index"]--;
+    displacedItem["stage_index"]--;
 
-    assemblyItemsCopy.splice(assemblyItemsCopy.length, 0, removedItem);
+    assemblyItemsCopy.splice(assemblyItemsCopy.length, 0, displacedItem);
     setAssemblyItems(assemblyItemsCopy);
   };
 
@@ -42,12 +42,12 @@ const AssemblyItem = ({
 
     if (item_id >= 0 && item_id < assemblyItems.length) {
       const assemblyItemsCopy = [...assemblyItems];
-      const [removedItem] = assemblyItemsCopy.splice(item_id, 1);
+      const [displacedItem] = assemblyItemsCopy.splice(item_id, 1);
 
       if (e.button === 0) {
-        prependItem(removedItem, assemblyItemsCopy);
+        prependItem(displacedItem, assemblyItemsCopy);
       } else if (e.button === 2) {
-        appendItem(removedItem, assemblyItemsCopy);
+        appendItem(displacedItem, assemblyItemsCopy);
       }
     }
   };

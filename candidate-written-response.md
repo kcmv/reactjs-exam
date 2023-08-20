@@ -1,0 +1,3 @@
+To complete this assessment examination, I faced challenges related to dependencies, particularly within the "node-sass": "^4.12.0" library. Despite attempting to revert my Python version from 3.10 to 2.7, the problem persisted without resolution. As the guidelines permit alternative styling approaches, I opted to utilize plain CSS and deleted the node-sassy deps in package.json so i can proceed to install other dependecies necessary for me to run the script.
+
+Furthermore, due to the utilization of React version 16.8, I was constrained from employing other ES6 syntax options. Consequently, I was unable to utilize null coalescing and optional chaining for supplementary input validation checks. Ultimately, I managed to successfully fulfill the examination requirements.
