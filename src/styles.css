@@ -2,6 +2,14 @@
   margin: 2em;
 }
 
+.assembly-add-item {
+  margin-left: 10px;
+}
+
+.assembly-add-stage {
+  width: 25%;
+}
+
 .assembly-item {
   display: flex;
   flex-direction: column;

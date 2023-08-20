@@ -1,0 +1,5 @@
+`style.scss` was changed to `style.css` since I ran into a problem when installing dependencies.
+
+To summarize, `AssemblyLine.jsx` gets an array from props which will be the names of the stages. There is an input element where text is accepted and placed in the first stage. Left clicking an item in a stage transfers it to the next stage, where if it is in the last stage it will be deleted. Right clicking transfers it to the previous stage, where if it is in the first stage it will be deleted.
+
+I also made a validation to check the array passed, where it will display a different text/element if the array is empty. Though I hadn't written a test for it because I'm inexperienced with writing tests and also encoutered errors when trying to execute it. The npm start command was also modified since I also encountered errors.
