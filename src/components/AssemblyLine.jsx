@@ -1,25 +1,24 @@
 import React, { useState, useRef } from "react";
 import AssemblyItem from "./AssemblyItem";
+import PropTypes from "prop-types";
 
 const AssemblyLine = ({ stages }) => {
   const [inputItem, setInputItem] = useState("");
-  const [assemblyData, setAssemblyData] = useState([]);
+  const [assemblyItems, setAssemblyItems] = useState([]);
   const inputRef = useRef(null);
-  console.log(assemblyData);
 
-  const AddItemChange = (e) => {
+  const addItemHandleChange = (e) => {
     e.preventDefault();
     setInputItem(e.target.value);
   };
 
   const handleInputKeyDown = (e) => {
     if (e.key === "Enter") {
-      setAssemblyData((prevAssemblyData) => [
-        ...prevAssemblyData,
+      setAssemblyItems((prevAssemblyItems) => [
         { assembly_item: inputItem, stage_index: 0 },
+        ...prevAssemblyItems,
       ]);
       inputRef.current.value = "";
-      console.log(inputItem);
     }
   };
 
@@ -33,34 +32,46 @@ const AssemblyLine = ({ stages }) => {
           className="assembly-add-item "
           name="add-item"
           ref={inputRef}
-          onChange={AddItemChange}
+          onChange={addItemHandleChange}
           onKeyDown={handleInputKeyDown}
         />
       </header>
       <main className="container">
-        {stages &&
-          stages.map((stage, id) => (
+        {stages.length !== 0 ? (
+          stages.map((stage, stage_id) => (
             <div key={stage} className="assembly-stage">
-              <h1 className="stage-type">{stage}</h1>
+              <h2 className="stage-type">{stage}</h2>
+
               <div className="stage-items">
-                {assemblyData.length !== 0 &&
-                  assemblyData.map(
-                    ({ assembly_item, stage_index }, data_id = id) => {
-                      if (stage_index === id) {
-                        return (
-                          <div key={`${stage_index}-${data_id}`}>
-                            <AssemblyItem item={assembly_item} />
-                          </div>
-                        );
-                      }
+                {assemblyItems.length !== 0 &&
+                  assemblyItems.map((data, item_id) => {
+                    if (data.stage_index === stage_id) {
+                      return (
+                        <React.Fragment key={`${data.stage_index}-${item_id}`}>
+                          <AssemblyItem
+                            stages={stages}
+                            data={data}
+                            item_id={item_id}
+                            assemblyItems={assemblyItems}
+                            setAssemblyItems={setAssemblyItems}
+                          />
+                        </React.Fragment>
+                      );
                     }
-                  )}
+                  })}
               </div>
             </div>
-          ))}
+          ))
+        ) : (
+          <span>"No Stages Found!"</span>
+        )}
       </main>
     </>
   );
+};
+
+AssemblyLine.propTypes = {
+  stages: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default AssemblyLine;
