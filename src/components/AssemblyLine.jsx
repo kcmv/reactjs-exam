@@ -1,11 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import AssemblyItem from "./AssemblyItem";
 import PropTypes from "prop-types";
 
 const AssemblyLine = ({ stages }) => {
   const [inputItem, setInputItem] = useState("");
   const [assemblyItems, setAssemblyItems] = useState([]);
-  const inputRef = useRef(null);
 
   const addItemHandleChange = (e) => {
     e.preventDefault();
@@ -18,7 +17,7 @@ const AssemblyLine = ({ stages }) => {
         { assembly_item: inputItem, stage_index: 0 },
         ...prevAssemblyItems,
       ]);
-      inputRef.current.value = "";
+      setInputItem("");
     }
   };
 
@@ -31,7 +30,7 @@ const AssemblyLine = ({ stages }) => {
         <input
           className="assembly-add-item "
           name="add-item"
-          ref={inputRef}
+          value={inputItem}
           onChange={addItemHandleChange}
           onKeyDown={handleInputKeyDown}
         />
@@ -75,8 +74,3 @@ AssemblyLine.propTypes = {
 };
 
 export default AssemblyLine;
-
-// TODO add your code here.
-// Feel free to use hooks and state.
-// Don't forget about candidate-written-response.md
-// when you finish coding!
