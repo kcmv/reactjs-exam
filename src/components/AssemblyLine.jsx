@@ -12,7 +12,7 @@ const AssemblyLine = ({ stages }) => {
   };
 
   const handleInputKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.target.value !== "") {
       setAssemblyItems((prevAssemblyItems) => [
         { assembly_item: inputItem, stage_index: 0 },
         ...prevAssemblyItems,
